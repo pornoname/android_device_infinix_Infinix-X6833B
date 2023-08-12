@@ -15,9 +15,11 @@ VENDOR=infinix
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
 
-ANDROID_ROOT="${MY_DIR}/../../.."
+git clone "https://github.com/LineageOS/android_tools_extract-utils.git"
 
-HELPER="${ANDROID_ROOT}/tools/extract-utils/extract_utils.sh"
+ANDROID_ROOT="${MY_DIR}"
+
+HELPER="${ANDROID_ROOT}/android_tools_extract-utils/extract_utils.sh"
 if [ ! -f "${HELPER}" ]; then
     echo "Unable to find helper script at ${HELPER}"
     exit 1
