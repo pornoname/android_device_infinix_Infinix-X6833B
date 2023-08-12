@@ -14,9 +14,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: configure
-      run: ./configure
-
     - name: Prepare the environment
       run: |
         sudo apt update
@@ -25,3 +22,9 @@ jobs:
     
     - name: build
       run: sudo chmod 777 setup-makefiles.sh && ./setup-makefiles.sh
+
+    - name: Upload to Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          *
